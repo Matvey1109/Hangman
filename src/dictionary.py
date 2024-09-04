@@ -1,9 +1,11 @@
-from category import Category
-from word import Word
-from difficulty import Difficulty
+import random
+
+from src.category import Category
+from src.difficulty import Difficulty
+from src.word import Word
 
 
-class Game:
+class Dictionary:
     words: list[Word] = [
         Word(
             "Doctor",
@@ -60,3 +62,22 @@ class Game:
             Difficulty.HARD.value,
         ),
     ]
+
+    @staticmethod
+    def get_random_word(category: str | None, difficulty: int | None) -> Word:
+        filtered_words = Dictionary.words
+
+        if category:
+            filtered_words = [
+                word for word in filtered_words if word.category == category
+            ]
+
+        if difficulty:
+            filtered_words = [
+                word for word in filtered_words if word.difficulty == difficulty
+            ]
+
+        if not filtered_words:
+            raise ValueError("No words match the specified criteria")
+
+        return random.choice(filtered_words)
