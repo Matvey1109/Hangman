@@ -1,5 +1,6 @@
-from src.game_session import GameSession
 import pytest
+
+from src.game_session import GameSession
 
 
 class TestGameSession:

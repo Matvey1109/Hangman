@@ -5,8 +5,8 @@ from src.word import Word
 
 
 def test_get_random_word():
-    Dictionary.load_words_from_file("src/words.txt")
-    
+    Dictionary.load_words_from_file("src/words.json")
+
     # without filtering
     random_word: Word = Dictionary.get_random_word(None, None)
     assert random_word in Dictionary.words

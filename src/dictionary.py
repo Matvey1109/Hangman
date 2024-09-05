@@ -1,19 +1,21 @@
+import json
 import random
 
 from src.word import Word
 
 
 class Dictionary:
-    words = []
+    words: list[Word] = []
 
     @staticmethod
-    def load_words_from_file(file_path):
+    def load_words_from_file(file_path: str) -> None:
         with open(file_path, "r") as file:
-            for line in file:
-                parts = line.strip().split(",")  # Words are comma-separated
-                if len(parts) == 4:
-                    word = Word(parts[0], parts[1], parts[2], parts[3])
-                    Dictionary.words.append(word)
+            data = json.load(file)
+            for item in data:
+                word = Word(
+                    item["name"], item["category"], item["hint"], item["difficulty"]
+                )
+                Dictionary.words.append(word)
 
     @staticmethod
     def get_random_word(
