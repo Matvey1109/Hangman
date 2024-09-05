@@ -1,0 +1,9 @@
+Doctor,JOBS,A person trained to treat and cure illnesses,EASY
+President,JOBS,The person who runs the country,MEDIUM
+Neurosurgeon,JOBS,A specialist surgeon who operates on the brain and nervous system,HARD
+Dog,ANIMALS,A domesticated carnivorous mammal,EASY
+Elephant,ANIMALS,A large mammal with tusks and a trunk,MEDIUM
+Tasmanian Devil,ANIMALS,A carnivorous marsupial native to Tasmania, known for its aggressive behavior,HARD
+Paris,CITIES,The capital of France,EASY
+Tokyo,CITIES,The capital of Japan,MEDIUM
+Istanbul,CITIES,A major city in Turkey that straddles Europe and Asia,HARD
