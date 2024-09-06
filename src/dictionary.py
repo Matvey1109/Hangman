@@ -5,10 +5,13 @@ from src.word import Word
 
 
 class Dictionary:
+    """
+    Class to getting random word
+    """
+
     words: list[Word] = []
 
-    @staticmethod
-    def load_words_from_file(file_path: str) -> None:
+    def load_words_from_file(self, file_path: str) -> None:
         with open(file_path, "r") as file:
             data = json.load(file)
             for item in data:
@@ -17,9 +20,8 @@ class Dictionary:
                 )
                 Dictionary.words.append(word)
 
-    @staticmethod
     def get_random_word(
-        category: str | None = None, difficulty: str | None = None
+        self, category: str | None = None, difficulty: str | None = None
     ) -> Word:
         filtered_words = Dictionary.words
 
