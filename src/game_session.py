@@ -1,4 +1,4 @@
-from src.word import Word
+from word import Word
 
 
 class GameSession:
@@ -21,13 +21,21 @@ class GameSession:
         self.__word_hint: str = word.hint.upper()
         self.__current_state: list[str] = ["_"] * self.__len_of_word
 
-    def make_guess(self, letter) -> bool:
+    def make_guess(self, letter: str) -> bool:
         upper_letter: str = letter.upper()
 
         if upper_letter in self.__typed_letters:
             print(
                 f"You've already typed the letter '{upper_letter}'. Try a different letter."
             )
+            return False
+
+        if not upper_letter.isalpha():
+            print("Invalid input")
+            return False
+
+        if len(upper_letter) != 1:
+            print("Please, enter a single letter")
             return False
 
         self.__typed_letters.add(upper_letter)

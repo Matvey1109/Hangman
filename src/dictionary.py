@@ -1,7 +1,7 @@
 import json
 import random
 
-from src.word import Word
+from word import Word
 
 
 class Dictionary:

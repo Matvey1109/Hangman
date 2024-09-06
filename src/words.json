@@ -30,9 +30,9 @@
         "difficulty": "MEDIUM"
     },
     {
-        "name": "Tasmanian Devil",
+        "name": "Pangolin",
         "category": "ANIMALS",
-        "hint": "A carnivorous marsupial native to Tasmania, known for its aggressive behavior",
+        "hint": "An anteater-like mammal covered in scales, native to Africa and Asia",
         "difficulty": "HARD"
     },
     {
