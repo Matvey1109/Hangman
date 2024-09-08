@@ -7,9 +7,12 @@ class GameSession:
     """
 
     def __init__(self, max_attempts: int) -> None:
-        self.__max_attempts: int = max_attempts
+        self.__max_attempts: int = max_attempts  # 7 is min
         self.__attempts_made: int = 0
         self.__typed_letters: set[str] = set()
+
+        if self.__max_attempts < 7:
+            raise ValueError("Max attempts should be at least 7")
 
     def start_new_game(self, word: Word) -> None:
         self.__word_to_guess: str = word.name.upper()

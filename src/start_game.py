@@ -27,7 +27,7 @@ def game_menu() -> None:
 
 def setup_game() -> tuple[GameSession, UI]:
     """Sets up the game session and UI for the Hangman Game"""
-    max_attempts: int = 6
+    max_attempts: int = 7
 
     category: str | None = get_category()
     difficulty: str | None = get_difficulty()
@@ -41,10 +41,6 @@ def setup_game() -> tuple[GameSession, UI]:
     game_session.start_new_game(hidden_word)
 
     ui = UI(
-        current_state=[],
-        attempts_made=0,
-        max_attempts=max_attempts,
-        typed_letters=set(),
         category=hidden_word.category,
         difficulty=hidden_word.difficulty,
     )

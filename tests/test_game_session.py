@@ -9,7 +9,7 @@ class TestGameSession:
     @pytest.fixture
     def game_session(self) -> GameSession:
         """Fixture to create a new GameSession instance for each test"""
-        game_session: GameSession = GameSession(5)
+        game_session: GameSession = GameSession(7)
         game_session.start_new_game(Word("abc", "JOBS", "Hint", "HARD"))
         return game_session
 
@@ -35,6 +35,8 @@ class TestGameSession:
         game_session.make_guess("F")
         game_session.make_guess("G")
         game_session.make_guess("H")
+        game_session.make_guess("T")
+        game_session.make_guess("Q")
         assert game_session.is_game_over() is True
         assert game_session.get_game_data()[0] == ["_", "_", "_"]
 
@@ -47,7 +49,7 @@ class TestGameSession:
     def test_state_remains_same_on_invalid_input(self, game_session: GameSession):
         game_session.make_guess("xy")
         assert game_session.get_game_data()[0] == ["_", "_", "_"]
-        assert game_session.get_game_data()[2] == 5
+        assert game_session.get_game_data()[2] == 7
 
     def test_get_hint(self, game_session: GameSession):
         hint = game_session.get_hint()
