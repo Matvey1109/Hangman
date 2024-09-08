@@ -1,5 +1,6 @@
 import logging
 import platform
+
 from start_game import start_game
 
 logging.basicConfig()

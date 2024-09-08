@@ -1,10 +1,11 @@
-from dictionary import Dictionary
-from word import Word
-from ui import UI
+import os
+
 from category import get_category
+from dictionary import Dictionary
 from difficulty import get_difficulty
 from game_session import GameSession
-import os
+from ui import UI
+from word import Word
 
 
 def clear_screen():
