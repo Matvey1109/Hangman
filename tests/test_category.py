@@ -16,4 +16,4 @@ def test_valid_category_input():
 
     get_category.__globals__["input"] = user_input
 
-    assert get_category() == "JOBS"
+    assert get_category() == "jobs"

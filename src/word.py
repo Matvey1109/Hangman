@@ -1,4 +1,6 @@
 from dataclasses import dataclass
+from category import Category
+from difficulty import Difficulty
 
 
 @dataclass
@@ -8,6 +10,6 @@ class Word:
     """
 
     name: str
-    category: str
+    category: Category
     hint: str
-    difficulty: str
+    difficulty: Difficulty

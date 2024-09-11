@@ -1,17 +1,18 @@
-from enum import Enum
+import enum
+import random
 
 
-class Category(Enum):
+class Category(enum.StrEnum):
     """
     Enum for the different categories of the data
     """
 
-    JOBS = "JOBS"
-    ANIMALS = "ANIMALS"
-    CITIES = "CITIES"
+    JOBS = enum.auto()
+    ANIMALS = enum.auto()
+    CITIES = enum.auto()
 
 
-def get_category() -> str | None:
+def get_category() -> Category:
     """
     Returns category
     """
@@ -19,11 +20,16 @@ def get_category() -> str | None:
         print(
             "Please choose a category (JOBS, ANIMALS, CITIES), or type 0 to get random:"
         )
-        category: str | None = input(">>> ")
-        if category in [category.value for category in Category]:
+        tuple_of_categories: tuple[Category, ...] = tuple(Category)
+        category_input: str = input(">>> ").lower()
+        category: Category
+
+        if category_input in tuple_of_categories:
+            category = Category(category_input)
             break
-        elif category == "0":
-            category = None
+
+        elif category_input == "0":
+            category = random.choice(tuple_of_categories)
             break
         else:
             print("Invalid category. Please try again")

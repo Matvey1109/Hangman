@@ -7,7 +7,7 @@ authors = ["n.beskodarov <n.beskodarov@tinkoff.ru>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10.5"
+python = "^3.11"
 
 
 [tool.poetry.dev-dependencies]

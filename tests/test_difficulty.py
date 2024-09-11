@@ -16,4 +16,4 @@ def test_valid_difficulty_input():
 
     get_difficulty.__globals__["input"] = user_input
 
-    assert get_difficulty() == "EASY"
+    assert get_difficulty() == "easy"

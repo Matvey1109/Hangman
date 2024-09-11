@@ -1,8 +1,8 @@
 import os
 
-from category import get_category
+from category import get_category, Category
 from dictionary import Dictionary
-from difficulty import get_difficulty
+from difficulty import get_difficulty, Difficulty
 from game_session import GameSession
 from ui import UI
 from word import Word
@@ -30,12 +30,11 @@ def setup_game() -> tuple[GameSession, UI]:
     """Sets up the game session and UI for the Hangman Game"""
     max_attempts: int = 7
 
-    category: str | None = get_category()
-    difficulty: str | None = get_difficulty()
+    category: Category = get_category()
+    difficulty: Difficulty = get_difficulty()
 
     words_file_path: str = "src/words.json"
-    dictionary: Dictionary = Dictionary()
-    dictionary.load_words_from_file(words_file_path)
+    dictionary: Dictionary = Dictionary(words_file_path)
     hidden_word: Word = dictionary.get_random_word(category, difficulty)
 
     game_session: GameSession = GameSession(max_attempts)
@@ -100,5 +99,5 @@ def start_game():
                 hint: str = game_session.get_hint()
                 ui.set_word_hint(hint)
 
-            is_guessed: bool = game_session.make_guess(letter)
-            print("Correct guess!" if is_guessed else "Incorrect guess!")
+            is_guess_correct: bool = game_session.make_guess(letter)
+            print("Correct guess!" if is_guess_correct else "Incorrect guess!")

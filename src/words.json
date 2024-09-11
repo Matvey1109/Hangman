@@ -1,56 +1,56 @@
 [
     {
         "name": "Doctor",
-        "category": "JOBS",
+        "category": "jobs",
         "hint": "A person trained to treat and cure illnesses",
-        "difficulty": "EASY"
+        "difficulty": "easy"
     },
     {
         "name": "President",
-        "category": "JOBS",
+        "category": "jobs",
         "hint": "The person who runs the country",
-        "difficulty": "MEDIUM"
+        "difficulty": "medium"
     },
     {
         "name": "Neurosurgeon",
-        "category": "JOBS",
+        "category": "jobs",
         "hint": "A specialist surgeon who operates on the brain and nervous system",
-        "difficulty": "HARD"
+        "difficulty": "hard"
     },
     {
         "name": "Dog",
-        "category": "ANIMALS",
+        "category": "animals",
         "hint": "A domesticated carnivorous mammal",
-        "difficulty": "EASY"
+        "difficulty": "easy"
     },
     {
         "name": "Elephant",
-        "category": "ANIMALS",
+        "category": "animals",
         "hint": "A large mammal with tusks and a trunk",
-        "difficulty": "MEDIUM"
+        "difficulty": "medium"
     },
     {
         "name": "Pangolin",
-        "category": "ANIMALS",
+        "category": "animals",
         "hint": "An anteater-like mammal covered in scales, native to Africa and Asia",
-        "difficulty": "HARD"
+        "difficulty": "hard"
     },
     {
         "name": "Paris",
-        "category": "CITIES",
+        "category": "cities",
         "hint": "The capital of France",
-        "difficulty": "EASY"
+        "difficulty": "easy"
     },
     {
         "name": "Tokyo",
-        "category": "CITIES",
+        "category": "cities",
         "hint": "The capital of Japan",
-        "difficulty": "MEDIUM"
+        "difficulty": "medium"
     },
     {
         "name": "Istanbul",
-        "category": "CITIES",
+        "category": "cities",
         "hint": "A major city in Turkey that straddles Europe and Asia",
-        "difficulty": "HARD"
+        "difficulty": "hard"
     }
 ]

@@ -1,6 +1,8 @@
 import pytest
 
 from src.game_session import GameSession
+from src.category import Category
+from src.difficulty import Difficulty
 from src.word import Word
 
 
@@ -10,7 +12,7 @@ class TestGameSession:
     def game_session(self) -> GameSession:
         """Fixture to create a new GameSession instance for each test"""
         game_session: GameSession = GameSession(7)
-        game_session.start_new_game(Word("abc", "JOBS", "Hint", "HARD"))
+        game_session.start_new_game(Word("abc", Category.JOBS, "Hint", Difficulty.HARD))
         return game_session
 
     def test_make_guess_correct_letter(self, game_session: GameSession):
@@ -42,7 +44,7 @@ class TestGameSession:
 
     def test_start_new_game_with_empty_word(self, game_session: GameSession):
         with pytest.raises(ValueError) as exc_info:
-            game_session.start_new_game(Word("", "JOBS", "Hint", "HARD"))
+            game_session.start_new_game(Word("", Category.JOBS, "Hint", Difficulty.HARD))
 
         assert str(exc_info.value) == "Incorrect length of hidden word"
 
