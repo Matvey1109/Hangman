@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+
 from category import Category
 from difficulty import Difficulty
 

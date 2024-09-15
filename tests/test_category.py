@@ -1,19 +1,26 @@
-from src.category import get_category
+import io
+
+import pytest
+
+from src.category import Category, get_category
 
 
-class InputSimulator:
-    """Custom input for testing"""
+@pytest.mark.parametrize(
+    "mock_input, expected_output",
+    [
+        ("JOBS", Category.JOBS),
+        ("ANIMALS", Category.ANIMALS),
+        ("CITIES", Category.CITIES),
+    ],
+)
+def test_valid_category_input(mock_input, expected_output, monkeypatch):
+    monkeypatch.setattr("sys.stdin", io.StringIO(mock_input))
+    assert get_category() == expected_output
 
-    def __init__(self, user_inputs):
-        self.user_inputs = iter(user_inputs)
 
-    def __call__(self, prompt):
-        return next(self.user_inputs)
+def test_invalid_category_input(monkeypatch):
+    with pytest.raises(EOFError) as exc_info:
+        monkeypatch.setattr("sys.stdin", io.StringIO("INVALID"))
+        get_category()
 
-
-def test_valid_category_input():
-    user_input = InputSimulator(["JOBS"])
-
-    get_category.__globals__["input"] = user_input
-
-    assert get_category() == "jobs"
+    assert exc_info.value

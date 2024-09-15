@@ -1,19 +1,26 @@
-from src.difficulty import get_difficulty
+import io
+
+import pytest
+
+from src.difficulty import Difficulty, get_difficulty
 
 
-class InputSimulator:
-    """Custom input for testing"""
+@pytest.mark.parametrize(
+    "mock_input, expected_output",
+    [
+        ("EASY", Difficulty.EASY),
+        ("MEDIUM", Difficulty.MEDIUM),
+        ("HARD", Difficulty.HARD),
+    ],
+)
+def test_valid_difficulty_input(mock_input, expected_output, monkeypatch):
+    monkeypatch.setattr("sys.stdin", io.StringIO(mock_input))
+    assert get_difficulty() == expected_output
 
-    def __init__(self, user_inputs):
-        self.user_inputs = iter(user_inputs)
 
-    def __call__(self, prompt):
-        return next(self.user_inputs)
+def test_invalid_difficulty_input(monkeypatch):
+    with pytest.raises(EOFError) as exc_info:
+        monkeypatch.setattr("sys.stdin", io.StringIO("INVALID"))
+        get_difficulty()
 
-
-def test_valid_difficulty_input():
-    user_input = InputSimulator(["EASY"])
-
-    get_difficulty.__globals__["input"] = user_input
-
-    assert get_difficulty() == "easy"
+    assert exc_info.value

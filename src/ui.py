@@ -1,3 +1,6 @@
+import os
+
+
 class UI:
     """
     Class represents a ui for the hangman game.
@@ -8,25 +11,28 @@ class UI:
         self,
         category: str,
         difficulty: str,
+        max_attempts: int,
     ) -> None:
         self._category: str = category
         self._difficulty: str = difficulty
+        self._max_attempts: int = max_attempts
+        self._current_state: list[str]
+        self._attempts_made: int
+        self._typed_letters: set[str]
         self._word_hint: str = ""
 
     def update_ui(
         self,
         current_state: list[str],
         attempts_made: int,
-        max_attempts: int,
         typed_letters: set[str],
     ) -> None:
-        self._current_state: list[str] = current_state
-        self._attempts_made: int = attempts_made
-        self._max_attempts: int = max_attempts
-        self._typed_letters: set[str] = typed_letters
+        self._current_state = current_state
+        self._attempts_made = attempts_made
+        self._typed_letters = typed_letters
 
     def set_word_hint(self, word_hint: str) -> None:
-        self._word_hint: str = word_hint
+        self._word_hint = word_hint
 
     def get_ui_message(self) -> str:
         text_message: str = (
@@ -91,3 +97,35 @@ class UI:
         )
 
         return part1 + part2 + parts[hangman_part_index]
+
+    @staticmethod
+    def clear_screen():
+        """Clears the console screen"""
+        os.system("cls" if os.name == "nt" else "clear")
+
+    @staticmethod
+    def hello_message() -> None:
+        """Displays a welcome message for the Hangman Game"""
+        print("Welcome to the Hangman Game!")
+        print("Guess the word by entering one letter at a time.")
+        print("Good luck!\n")
+
+    @staticmethod
+    def game_menu() -> None:
+        """Displays the game menu options"""
+        print("1. Start a new game")
+        print("2. Exit")
+
+    @staticmethod
+    def is_playing_again() -> bool:
+        """Asks the player to play again or exit the game"""
+        while True:
+            UI.game_menu()
+            choice = input(">>> ")
+            if choice == "1":
+                return True
+            elif choice == "2":
+                print("Thanks for playing!")
+                return False
+            else:
+                print("Invalid choice. Please try again.")

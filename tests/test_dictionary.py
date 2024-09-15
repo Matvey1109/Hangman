@@ -27,3 +27,10 @@ class TestDictionary:
             dictionary.get_random_word(Category("INVALID_CATEGORY"), Difficulty.HARD)
 
         assert exc_info.value
+
+
+def test_dictionary_with_incorrect_length_of_hidden_word():
+    with pytest.raises(ValueError) as exc_info:
+        _: Dictionary = Dictionary("tests/test_words.json")
+
+    assert exc_info.value

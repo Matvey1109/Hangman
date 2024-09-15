@@ -27,7 +27,6 @@ def get_category() -> Category:
         if category_input in tuple_of_categories:
             category = Category(category_input)
             break
-
         elif category_input == "0":
             category = random.choice(tuple_of_categories)
             break

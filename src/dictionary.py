@@ -1,9 +1,9 @@
 import json
 import random
 
-from word import Word
 from category import Category
 from difficulty import Difficulty
+from word import Word
 
 
 class Dictionary:
@@ -17,9 +17,13 @@ class Dictionary:
         with open(file_path, "r") as file:
             data = json.load(file)
             for item in data:
+                if len(item["name"]) == 0:
+                    raise ValueError("Incorrect length of hidden word")
+
                 word = Word(
                     item["name"], item["category"], item["hint"], item["difficulty"]
                 )
+
                 self._words.append(word)
 
     def get_random_word(self, category: Category, difficulty: Difficulty) -> Word:
@@ -32,4 +36,8 @@ class Dictionary:
         if not filtered_words:
             raise ValueError("No words match the specified criteria")
 
-        return random.choice(filtered_words)
+        random_word: Word = random.choice(filtered_words)
+        random_word.name = random_word.name.upper()
+        random_word.hint = random_word.hint.upper()
+
+        return random_word
