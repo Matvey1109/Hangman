@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Doctor",
+        "category": "jobs",
+        "hint": "A person trained to treat and cure illnesses",
+        "difficulty": "easy"
+    },
+    {
+        "name": "President",
+        "category": "jobs",
+        "hint": "The person who runs the country",
+        "difficulty": "medium"
+    },
+    {
+        "name": "Neurosurgeon",
+        "category": "jobs",
+        "hint": "A specialist surgeon who operates on the brain and nervous system",
+        "difficulty": "hard"
+    },
+    {
+        "name": "Dog",
+        "category": "animals",
+        "hint": "A domesticated carnivorous mammal",
+        "difficulty": "easy"
+    },
+    {
+        "name": "Elephant",
+        "category": "animals",
+        "hint": "A large mammal with tusks and a trunk",
+        "difficulty": "medium"
+    },
+    {
+        "name": "Pangolin",
+        "category": "animals",
+        "hint": "An anteater-like mammal covered in scales, native to Africa and Asia",
+        "difficulty": "hard"
+    },
+    {
+        "name": "Paris",
+        "category": "cities",
+        "hint": "The capital of France",
+        "difficulty": "easy"
+    },
+    {
+        "name": "Tokyo",
+        "category": "cities",
+        "hint": "The capital of Japan",
+        "difficulty": "medium"
+    },
+    {
+        "name": "Istanbul",
+        "category": "cities",
+        "hint": "A major city in Turkey that straddles Europe and Asia",
+        "difficulty": "hard"
+    }
+]
