@@ -1,0 +1,7 @@
+git clone git@github.com:central-university-dev/1-python-Matvey1109.git
+git remote add new-origin git@github.com:Matvey1109/Hangman.git
+git fetch new-origin
+git checkout remotes/new-origin/main
+git merge master --allow-unrelated-histories
+git checkout -b main
+git push new-origin main
